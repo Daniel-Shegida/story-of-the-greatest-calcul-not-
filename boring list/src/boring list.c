@@ -51,7 +51,6 @@ void pushEl ( FILE* inFile) {
     element *futureLast = (element*)malloc(sizeof(element));
 
     fscanf(inFile, " %c %c", &futureLast->ch, &futureLast->vec);
-    printf("   1414 we are here %c  %c",futureLast->ch,futureLast->vec);
  // если это векторная операция до обьявляется массив под вектор
     if (futureLast->vec == 'v')
         fscanf(inFile, "%d", &futureLast->nubmerOfVec);
