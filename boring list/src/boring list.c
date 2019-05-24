@@ -94,7 +94,6 @@ void pushres ()
         case 'c' :switch(last->ch)
         {
             case '+' :
-                puts("  6 we are here ");
                 futureLast->result[0] = last->value1[0] + last->value2[0];
                 break;
             case '-' :
