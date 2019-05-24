@@ -7,13 +7,20 @@
  Description : Hello World in C, Ansi-style
  ============================================================================
  */
-//order is important in functions
+
+//файлы должны подаваться в следующей компановке (операция) (абота с векторами или нет) (если с векторами то размерность если нет пропускаем этот шаг)
+//и числа для вычислений
+
+//тест был в винде и эклипсе
+
+//файл храните в верстаке
 
 #include <stdio.h>
 #include <stdlib.h>
 
 int main()
 {
+ //открытие файлов для записи и чтения 
     FILE *inFile, *outFile;
     float *a ;
     float *b ;
@@ -24,32 +31,35 @@ int main()
     inFile = fopen("source.txt","r");
     outFile = fopen("output.txt","w");
     fscanf (inFile, "%c %c ", &ch,&vec);
+ //в зависимости от прочитанных данных идет обьявление переменных для работы с векторами или числами
     switch(vec)
     {
      case 'v':fscanf (inFile, "%d", &nubmerOfVec);break;
      case 'c': nubmerOfVec = 1;
     }
 
-    printf("we are here 1 %d", nubmerOfVec);
+//    printf("we are here 1 %d", nubmerOfVec);
     a = malloc(nubmerOfVec*sizeof(float));
     b = malloc(nubmerOfVec*sizeof(float));
+ //чтение чисел с которыми работаем 
     for(int q=0;q<nubmerOfVec;q++)
     {
             fscanf (inFile, " %f",&a[q]);
-            printf("\tFirst%f",a[q]);
+           // printf("\tFirst%f",a[q]);
     }
     for(int q=0;q<nubmerOfVec;q++)
         {
                 fscanf (inFile, " %f",&b[q]);
-                printf("\tSecond%f",b[q]);
+              //  printf("\tSecond%f",b[q]);
         }
-    puts("we are here 2 ");
+   // puts("we are here 2 ");
+ //чтение операций из файла и их обработка
            switch(vec)
            {
             case 'c' :
                 switch(ch)
                 {
-                case '+' :puts("we are here ");*a = *a + *b;fprintf ( outFile,"this is a result %f\n", *a); ; break;
+                case '+' :*a = *a + *b;fprintf ( outFile,"this is a result %f\n", *a); ; break;
                 case '-' :*a = *a - *b;fprintf ( outFile,"this is a result %f\n", *a); ; break;
 
                 case 'f' :*b =1 ;for (int c = 1;c<=*a;c++)
