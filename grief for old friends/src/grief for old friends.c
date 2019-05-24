@@ -21,7 +21,7 @@
 
 int main()
 {
- //открытие файлов для записи и чтения 
+ //открытие файлов для записи и чтения
     FILE *inFile, *outFile;
     float *a ;
     float *b ;
@@ -42,7 +42,7 @@ int main()
 //    printf("we are here 1 %d", nubmerOfVec);
     a = malloc(nubmerOfVec*sizeof(float));
     b = malloc(nubmerOfVec*sizeof(float));
- //чтение чисел с которыми работаем 
+ //чтение чисел с которыми работаем
     for(int q=0;q<nubmerOfVec;q++)
     {
             fscanf (inFile, " %f",&a[q]);
@@ -81,25 +81,62 @@ int main()
             case 'v' :  switch(ch)
             {
                 case '+':
+        			fprintf (outFile,"{%f ",a[0]);
+                	for (int m = 1;m<nubmerOfVec;m++)
+                	 	 {
+                			fprintf (outFile,"%f ",a[m]);
+                	 	 };
+             		fprintf (outFile,"}  +  {");
+             		fprintf (outFile,"%f ",b[0]);
+             			for (int m = 1;m<nubmerOfVec;m++)
+             		    {
+             				fprintf (outFile,"%f ",b[m]);
+             		    };
+             			fprintf (outFile,"}   =  {");
                     for (int m = 0;m<nubmerOfVec;m++)
-                                            {
-                                                a[m]= a[m] + b[m];
-                                                fprintf (outFile,"%f ",a[m]);
-                                            }break;
-                case '-':
-                    for (int m = 0;m<nubmerOfVec;m++)
-                        {
-                            a[m]= a[m] - b[m];
-                            fprintf (outFile,"%f ",a[m]);
+                    	{
+                    		a[m]= a[m] + b[m];
+                    			fprintf (outFile,"%f ",a[m]);
                         }
-                    break;
+                    fprintf (outFile,"}");break;
+                case '-':
+                	fprintf (outFile,"{%f ",a[0]);
+                	                	for (int m = 1;m<nubmerOfVec;m++)
+                	                	 	 {
+                	                			fprintf (outFile,"%f ",a[m]);
+                	                	 	 };
+                	             		fprintf (outFile,"}  -   {");
+                	             		fprintf (outFile,"%f ",b[0]);
+                	             			for (int m = 1;m<nubmerOfVec;m++)
+                	             		    {
+                	             				fprintf (outFile,"%f ",b[m]);
+                	             		    };
+                	             			fprintf (outFile,"}   =  {");
+                	                    for (int m = 0;m<nubmerOfVec;m++)
+                	                    	{
+                	                    		a[m]= a[m] - b[m];
+                	                    			fprintf (outFile,"%f ",a[m]);
+                	                        }
+                	                    fprintf (outFile,"}");break;
                 case '*':
-                    for (int m = 1;m<nubmerOfVec;m++)
-                                            {
-                                                a[m]= a[m] * b[m];
-                                                fprintf (outFile,"%f ",a[m]);
-                                            }
-                    break;
+                	fprintf (outFile,"{%f ",a[0]);
+                	                	for (int m = 1;m<nubmerOfVec;m++)
+                	                	 	 {
+                	                			fprintf (outFile,"%f ",a[m]);
+                	                	 	 };
+                	             		fprintf (outFile,"}  *   {");
+                	             		fprintf (outFile,"%f ",b[0]);
+                	             			for (int m = 1;m<nubmerOfVec;m++)
+                	             		    {
+                	             				fprintf (outFile,"%f ",b[m]);
+                	             		    };
+                	             			fprintf (outFile,"}   =  {");
+                	                    for (int m = 0;m<nubmerOfVec;m++)
+                	                    	{
+                	                    		a[m]= a[m] * b[m];
+                	                    			fprintf (outFile,"%f ",a[m]);
+                	                        }
+                	                    fprintf (outFile,"}");break;
             }
           }
 
