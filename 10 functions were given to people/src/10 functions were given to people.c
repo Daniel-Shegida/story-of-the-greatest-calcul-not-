@@ -7,7 +7,7 @@
  Description : second task for vectors
  ============================================================================
  */
-
+//в ходе программы будет ясно что заполнять
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,7 +52,7 @@ void vector_scal(float *v1,float *v2,int *ret)
     }
 }
 
-
+//функции для операций сложения умножения и тд
 float plus_print ()
 {
     float a ;
